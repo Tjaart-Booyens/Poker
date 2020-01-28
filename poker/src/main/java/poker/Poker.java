@@ -19,7 +19,7 @@ public class Poker{
         scanner = new Scanner(System.in);
         players = new ArrayList<Player>();
         deck = new Deck();
-        handEvaluater = new HandEvaluater();
+        handEvaluater = new FiveCardDrawHandEvaluater();
         handSize = 5;
 
         System.out.println("==============================");
@@ -39,9 +39,11 @@ public class Poker{
                         break;
                     case 3: shuffleDeck();
                         break;
-                    case 4: playRound();
+                    case 4: playHand();
                         break;
-                    case 5: startOver();
+                    case 5: newDeck();
+                        break;
+                    case 6: runStats();
                         break;
                     case 9: cont = false;
                         System.out.println("==============================");
@@ -73,8 +75,9 @@ public class Poker{
         System.out.println("1. Add a player");
         System.out.println("2. Show Deck");
         System.out.println("3. Shuffle Deck");
-        System.out.println("4. Play Round");
-        System.out.println("5. Start Over");
+        System.out.println("4. Play Hand");
+        System.out.println("5. New Deck");
+        System.out.println("6. Run Stats");
         System.out.println("9. Quit");
         System.out.println("==============================");
     }
@@ -98,10 +101,24 @@ public class Poker{
         System.out.println();
     }
 
+    public static void playHand(){
+        if(!players.isEmpty()){
+            clearHands();
+            if(handSize * players.size() <= deck.getCards().size()){
+                dealHands();
+                evaluateHands();
+                System.out.println("Cards left: " + deck.getCards().size());
+            }
+            else{
+                System.out.println("Not enough cards to deal.\n");
+            }
+        }
+        else{
+            System.out.println("Please add some players for the game.\n");
+        }
+    }
+
     public static void dealHands(){
-        // System.out.print("Select the amount of cards per hand: ");
-        // Integer handSize = Integer.parseInt(scanner.nextLine());
-        // System.out.println();
         System.out.println("Dealing the hands now.");
         deck.dealHand(handSize, players);
         System.out.println();
@@ -114,8 +131,7 @@ public class Poker{
             System.out.printf("%-25s %-14s \n", "Player " + player.getName() + "'s hand:", player.toString());
             System.out.printf("%-25s %-14s \n", "Player " + player.getName() + " have:", handEvaluater.evaluateHand(player.getCards()));
         }
-        System.out.println("==============================");
-        System.out.println();
+        System.out.println("==============================\n");
     }
 
     public static void clearHands(){
@@ -124,24 +140,63 @@ public class Poker{
         }
     }
 
-    public static void playRound(){
-        if(!players.isEmpty()){
-            clearHands();
-            if(handSize * players.size() <= deck.getCards().size()){
-                dealHands();
-                evaluateHands();
-            }
-            else{
-                System.out.println("Not enough cards to deal.");
-            }
-        }
-        else{
-            System.out.println("Please add some players for the game.");
-        }
-    }
-
-    public static void startOver(){
+    public static void newDeck(){
         deck = new Deck();
         clearHands();
+    } 
+
+    public static void runStats(){
+        ArrayList<Player> statPlayers = new ArrayList<>();
+        Deck statDeck = new Deck();
+        HandEvaluater statHe = new FiveCardDrawHandEvaluater();
+
+        statPlayers.add(new Player("Tjaart"));
+        Integer[] evaluations = new Integer[10];
+        for(int i=0; i<evaluations.length; i++){
+            evaluations[i] = 0;
+        }
+
+        for(int i=0; i<650000; i++){
+            statDeck.setCards(statDeck.shuffleDeck());
+            statDeck.dealHand(5, statPlayers);
+            statPlayers.get(0).sortCards();
+
+            switch(statHe.evaluateHand(statPlayers.get(0).getCards())){
+                case "High Card": evaluations[0]++;
+                    break;
+                case "One Pair": evaluations[1]++;
+                    break;
+                case "Two Pair": evaluations[2]++;
+                    break;
+                case "Three of a Kind": evaluations[3]++;
+                    break;
+                case "Straight": evaluations[4]++;
+                    break;
+                case "Flush": evaluations[5]++;
+                    break;
+                case "Full House": evaluations[6]++;
+                    break;
+                case "Four of a Kind": evaluations[7]++;
+                    break;
+                case "Straight Flush": evaluations[8]++;
+                    break;
+                case "Royal Flush": evaluations[9]++;
+                break;
+            }
+
+            statDeck = new Deck();
+            statPlayers.get(0).clearHand();
+        }
+
+        System.out.println("High Card: " + evaluations[0]);
+        System.out.println("One Pair: " + evaluations[1]);
+        System.out.println("Two Pair: " + evaluations[2]);
+        System.out.println("Three of a Kind: " + evaluations[3]);
+        System.out.println("Straight: " + evaluations[4]);
+        System.out.println("Flush: " + evaluations[5]);
+        System.out.println("Full House: " + evaluations[6]);
+        System.out.println("Four of a Kind: " + evaluations[7]);
+        System.out.println("Straight Flush: " + evaluations[8]);
+        System.out.println("Royal Flush: " + evaluations[9]);
     }
 }

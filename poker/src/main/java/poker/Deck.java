@@ -40,6 +40,7 @@ public class Deck{
 
     /**
      * Shows the current deck of cards
+     * DEBUG ONLY
      */
     public void showDeck(){
         int count = 0;
@@ -60,12 +61,10 @@ public class Deck{
      */
     public ArrayList<Card> shuffleDeck(){
         Random random = new Random();
-
         ArrayList<Card> shuffledDeck = new ArrayList<Card>();
         while(deck.size() > 0){
             shuffledDeck.add(deck.remove(random.nextInt(deck.size())));
         }
-
         return shuffledDeck;
     }
 
@@ -74,13 +73,11 @@ public class Deck{
      * If more than one player cards are dealt to each person one by one
      */
     public void dealHand(int handSize, ArrayList<Player> players){
-        
-            for(int i=0; i<handSize; i++){
-                for(Player player : players){
-                    if(player.getCards().size() != 5)
-                        player.addCard(deck.remove(0));
-                }
+        for(int i=0; i<handSize; i++){
+            for(Player player : players){
+                if(player.getCards().size() != 5)
+                    player.addCard(deck.remove(0));
             }
-        
+        }
     }
 }

@@ -28,14 +28,6 @@ public class Player{
     }
 
     /**
-     * Sets the name of the Player
-     * @param name of the Player
-     */
-    public void setName(String name){
-        this.name = name;
-    }
-
-    /**
      * Gets the cards of the Player
      * This is the Player's hand
      * @return the players Cards
