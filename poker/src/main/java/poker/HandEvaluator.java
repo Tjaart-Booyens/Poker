@@ -12,7 +12,7 @@ import java.util.Map.Entry;
 /**
  * Determines the hand of a Player based on his Cards
  */
-public abstract class HandEvaluater{
+public abstract class HandEvaluator{
 
     /**
      * Abstract evaluateHand function

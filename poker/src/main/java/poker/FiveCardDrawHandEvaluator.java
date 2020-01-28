@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 
-public class FiveCardDrawHandEvaluater extends HandEvaluater{
+public class FiveCardDrawHandEvaluator extends HandEvaluator{
 
     /**
      * Gets the Evaluation of the Cards given

@@ -7,9 +7,9 @@ import org.junit.Test;
 /**
  * Unit tests for FiveCardDrawHandEvaluater
  */
-public class FiveCardDrawHandEvaluaterTest{
+public class FiveCardDrawHandEvaluatorTest{
 
-    HandEvaluater he = new FiveCardDrawHandEvaluater();
+    HandEvaluator he = new FiveCardDrawHandEvaluator();
 
     /**
      * Evaluate a High Card

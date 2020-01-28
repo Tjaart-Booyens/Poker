@@ -11,7 +11,7 @@ public class Poker{
     private static Scanner scanner;
     private static ArrayList<Player> players;
     private static Deck deck;
-    private static HandEvaluater handEvaluater;
+    private static HandEvaluator handEvaluator;
     private static Integer handSize;
 
     public static void main(String[] args) {
@@ -19,7 +19,7 @@ public class Poker{
         scanner = new Scanner(System.in);
         players = new ArrayList<Player>();
         deck = new Deck();
-        handEvaluater = new FiveCardDrawHandEvaluater();
+        handEvaluator = new FiveCardDrawHandEvaluator();
         handSize = 5;
 
         System.out.println("==============================");
@@ -153,7 +153,7 @@ public class Poker{
             System.out.println("==============================");
             player.sortCards();
             System.out.printf("%-25s %-14s \n", "Player " + player.getName() + "'s hand:", player.toString());
-            System.out.printf("%-25s %-14s \n", "Player " + player.getName() + " have:", handEvaluater.evaluateHand(player.getCards()));
+            System.out.printf("%-25s %-14s \n", "Player " + player.getName() + " have:", handEvaluator.evaluateHand(player.getCards()));
         }
         System.out.println("==============================\n");
     }
@@ -181,7 +181,7 @@ public class Poker{
     public static void runStats(){
         ArrayList<Player> statPlayers = new ArrayList<>();
         Deck statDeck = new Deck();
-        HandEvaluater statHe = new FiveCardDrawHandEvaluater();
+        HandEvaluator statHe = new FiveCardDrawHandEvaluator();
 
         statPlayers.add(new Player("Tjaart"));
         Integer[] evaluations = new Integer[10];
