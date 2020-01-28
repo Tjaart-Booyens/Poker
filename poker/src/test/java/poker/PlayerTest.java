@@ -21,7 +21,7 @@ public class PlayerTest{
     }
 
     /**
-     * Set the cards of the Player and get the cards of the Player
+     * Set the Cards of the Player and get the Cards of the Player
      */
     @Test
     public void shouldSetCardsAndGetCards(){
@@ -37,7 +37,7 @@ public class PlayerTest{
     }
 
     /**
-     * Add cards one by one to the Player hand
+     * Add Cards one by one to the Player hand
      */
     @Test
     public void shouldAddCardOneByOne(){

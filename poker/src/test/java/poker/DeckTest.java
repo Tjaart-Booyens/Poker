@@ -13,7 +13,7 @@ import org.junit.Test;
 public class DeckTest{
 
     /**
-     * Create a new Deck and get the deck
+     * Create a new Deck and get the Deck
      */
     @Test
     public void shouldReturnInitialDeck(){
@@ -47,19 +47,6 @@ public class DeckTest{
             assertEquals("Failure - Card " + deck.getCards().get(i).toString() + " is not correct", test.get(i).toString(), deck.getCards().get(i).toString());
         }
     }
-
-    // /**
-    //  * Should shuffle the Deck
-    //  */
-    // @Test
-    // public void shouldShuffleDeck(){
-    //     Deck oDeck = new Deck();
-    //     Deck nDeck = new Deck();
-    //     nDeck.setCards(nDeck.shuffleDeck());
-    //     for(int i=0; i<oDeck.getCards().size(); i++){
-    //         assertNotEquals("Failure - The Deck was not shuffled", oDeck.getCards().get(i).toString(), nDeck.getCards().get(i).toString());
-    //     }
-    // }
 
     /**
      * Should Deal a hand to a Player

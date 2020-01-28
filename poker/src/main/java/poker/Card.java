@@ -1,7 +1,7 @@
 package poker;
 
 /**
- * Represents a Card that is apart of a Deck
+ * Represents a Card that is part of a Deck
  */
 public class Card implements Comparable<Card>{
 
@@ -9,9 +9,9 @@ public class Card implements Comparable<Card>{
     private CardRank rank;
 
     /**
-     * Creates a card with the given CardRank and CardSuit
-     * @param rank This is the card's rank and determines the ordering of a list of cards
-     * @param suit This is the suit of a card
+     * Creates a Card with the given CardRank and CardSuit
+     * @param rank This is the Card's rank and determines the ordering of a list of cards
+     * @param suit This is the suit of a Card
      */
     public Card(CardRank rank, CardSuit suit){
         this.rank = rank;
@@ -27,7 +27,7 @@ public class Card implements Comparable<Card>{
     }
 
     /**
-     * Gets the rank name of the card
+     * Gets the rank name of the Card
      * @return this Card's rank name
      */
     public String getRankName(){
@@ -35,7 +35,7 @@ public class Card implements Comparable<Card>{
     }
 
     /**
-     * Gets the rank value of the card
+     * Gets the rank value of the Card
      * @return this Card's rank value
      */
     public byte getRankValue(){
@@ -52,7 +52,7 @@ public class Card implements Comparable<Card>{
 
     /**
      * Overrides the compareTo function of the Comparable interface
-     * Enables Card's to be compared by their rank values
+     * Enables Cards to be compared by their rank values
      */
     @Override
     public int compareTo(Card c){

@@ -14,7 +14,9 @@ import java.util.Map.Entry;
  */
 public abstract class HandEvaluater{
 
-    
+    /**
+     * Abstract evaluateHand function
+     */
     public abstract String evaluateHand(ArrayList<Card> cards);
 
     /**

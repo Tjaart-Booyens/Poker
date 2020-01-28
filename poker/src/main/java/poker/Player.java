@@ -29,7 +29,6 @@ public class Player{
 
     /**
      * Gets the cards of the Player
-     * This is the Player's hand
      * @return the players Cards
      */
     public ArrayList<Card> getCards(){
@@ -38,7 +37,6 @@ public class Player{
 
     /**
      * Sets the cards of the Player
-     * This is the Player's hand
      * @param cards of the Player
      */
     public void setCards(ArrayList<Card> cards){
@@ -55,7 +53,6 @@ public class Player{
 
     /**
      * Sorts the Players Cards
-     * This is done based on the compareTo function in Cards
      */
     public void sortCards(){
         Collections.sort(cards);

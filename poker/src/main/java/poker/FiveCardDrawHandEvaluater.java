@@ -36,7 +36,7 @@ public class FiveCardDrawHandEvaluater extends HandEvaluater{
         }
 
         if(evaluation.isEmpty()){
-            evaluation = "High Card" /*" + cards.get(cards.size()-1).getRankName()*/;
+            evaluation = "High Card";
         }
 
         return evaluation;

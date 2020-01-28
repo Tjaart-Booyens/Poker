@@ -31,15 +31,15 @@ public class Deck{
     }
 
     /**
-     * Sets the deck to the list of Cards given
-     * To easily add a preconfigured deck or shuffle the deck and set as the new deck
+     * Sets the Deck to the list of Cards given
+     * To easily add a preconfigured Deck or shuffle the Deck and set as the new Deck
      */
     public void setCards(ArrayList<Card> deck){
         this.deck = deck;
     }
 
     /**
-     * Shows the current deck of cards
+     * Shows the current Deck of Cards
      * DEBUG ONLY
      */
     public void showDeck(){
@@ -70,7 +70,7 @@ public class Deck{
 
     /**
      * Deal a hand with the specified size from the current Deck
-     * If more than one player cards are dealt to each person one by one
+     * If more than one Player Cards are dealt to each Player one by one
      */
     public void dealHand(int handSize, ArrayList<Player> players){
         for(int i=0; i<handSize; i++){

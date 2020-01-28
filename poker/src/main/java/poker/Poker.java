@@ -60,6 +60,9 @@ public class Poker{
         scanner.close();
     }
 
+    /**
+     * Display all the current Players
+     */
     public static void displayPlayers(){
         if(players.size() > 0){
             System.out.println("The players are:");
@@ -70,6 +73,9 @@ public class Poker{
         }
     }
 
+    /**
+     * Display the menu of options
+     */
     public static void displayMenu(){
         System.out.println("==============================");
         System.out.println("1. Add a player");
@@ -82,6 +88,9 @@ public class Poker{
         System.out.println("==============================");
     }
 
+    /**
+     * Add a Player toe the current game
+     */
     public static void addPlayer(){
         System.out.print("Enter your name: ");
         String name = scanner.nextLine();
@@ -89,18 +98,27 @@ public class Poker{
         System.out.println();
     }
 
+    /**
+     * Show the current Deck
+     */
     public static void showDeck(){
         System.out.println("==============================");
         deck.showDeck();
         System.out.println("==============================");
     }
 
+    /**
+     * Shuffle the current Deck
+     */
     public static void shuffleDeck(){
         System.out.println("Shuffling the deck now.");
         deck.setCards(deck.shuffleDeck());
         System.out.println();
     }
 
+    /**
+     * Play a hand
+     */
     public static void playHand(){
         if(!players.isEmpty()){
             clearHands();
@@ -118,12 +136,18 @@ public class Poker{
         }
     }
 
+    /**
+     * Deal hands to the Players in the game
+     */
     public static void dealHands(){
         System.out.println("Dealing the hands now.");
         deck.dealHand(handSize, players);
         System.out.println();
     }
 
+    /**
+     * Evaluate the Players hands
+     */
     public static void evaluateHands(){
         for(Player player : players){
             System.out.println("==============================");
@@ -134,17 +158,26 @@ public class Poker{
         System.out.println("==============================\n");
     }
 
+    /**
+     * Clear the Players hand
+     */
     public static void clearHands(){
         for(Player player : players){
             player.clearHand();
         }
     }
 
+    /**
+     * Create a new Deck and start over
+     */
     public static void newDeck(){
         deck = new Deck();
         clearHands();
     } 
 
+    /**
+     * Some interesting stats
+     */
     public static void runStats(){
         ArrayList<Player> statPlayers = new ArrayList<>();
         Deck statDeck = new Deck();
