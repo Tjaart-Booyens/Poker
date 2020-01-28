@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * Unit tests for FiveCardDrawHandEvaluater
+ * Unit tests for FiveCardDrawHandEvaluator
  */
 public class FiveCardDrawHandEvaluatorTest{
 
