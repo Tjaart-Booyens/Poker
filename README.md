@@ -9,11 +9,38 @@ To install the project onto your machine do the following.
 ### Prerequisites
 
 Maven - be sure to have Maven installed by going to their website -> https://maven.apache.org/
+
 Java  - you will also need to have Java installed on your machine -> https://adoptopenjdk.net/
+
+### Installing the JAR
+
+If you want to run the JAR only you can either download the jar or clone the project into a directory of your choice.
+
+If you only downloaded the JAR go the step where you run the JAR.
+
+Go to the directory you want to install the project.
+
+Clone the git repo to the directory:
+
+```
+~$ git clone https://github.com/Tjaart-Booyens/Poker.git 
+```
+
+Now go to the poker directory inside of the Poker directory that was cloned:
+
+```
+~$ cd Poker/poker/
+```
 
 ### Running the JAR
 
+Run the JAR by executing the following command:
 
+```
+~$ java -jar path/to/poker-x.x-jar-with-dependencies.jar
+```
+
+Where -x.x- is the verion number of the JAR.
 
 ### Installing
 
